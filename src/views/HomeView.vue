@@ -36,9 +36,9 @@ const tabs = ["홈", "팀원구인", "포스트"];
   flex: 1;
   background-color: white;
   border: 0;
+  font-family: "Pretendard-Medium";
   font-size: 16px;
   color: #6b7684;
-  font-weight: bold;
 }
 button.active {
   color: #000000;
