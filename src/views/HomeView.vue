@@ -27,4 +27,20 @@ const currentTab = ref(0);
 const tabs = ["홈", "팀원구인", "포스트"];
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.tabs {
+  width: 100%;
+  display: flex;
+}
+.tabs button {
+  flex: 1;
+  background-color: white;
+  border: 0;
+  font-size: 16px;
+  color: #6b7684;
+  font-weight: bold;
+}
+button.active {
+  color: #000000;
+}
+</style>
