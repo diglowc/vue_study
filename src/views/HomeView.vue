@@ -13,10 +13,14 @@
   <div class="tab_content">
     <!-- 홈 -->
     <div v-show="currentTab == 0">
-      <img src="@/assets/images/main_image.png" />
+      <img id="mainImg" src="@/assets/images/main_image.png" />
+      <div class="header">
+        <img class="headerIcon" src="@/assets/images/notice.png" />
+        <PostingListHeader title="모집중인 프로젝트" />
+      </div>
     </div>
     <!-- 팀원구인 -->
-    <div v-show="currentTab == 1">팀원구인</div>
+    <div v-show="currentTab == 1"></div>
     <!-- 포스트 -->
     <div v-show="currentTab == 2">포스트</div>
   </div>
@@ -27,6 +31,8 @@ import { ref } from "vue";
 
 const currentTab = ref(0);
 const tabs = ["홈", "팀원구인", "포스트"];
+
+import PostingListHeader from "@/components/resources/PostingListHeader.vue";
 </script>
 
 <style lang="scss">
@@ -47,8 +53,21 @@ const tabs = ["홈", "팀원구인", "포스트"];
 button.active {
   color: #000000;
 }
-img {
+#mainImg {
   width: 100%;
   object-fit: contain;
+  margin-bottom: 15px;
+}
+.header {
+  margin: 15px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headerIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
 }
 </style>
