@@ -12,7 +12,9 @@
 
   <div class="tab_content">
     <!-- 홈 -->
-    <div v-show="currentTab == 0">홈</div>
+    <div v-show="currentTab == 0">
+      <img src="@/assets/images/main_image.png" />
+    </div>
     <!-- 팀원구인 -->
     <div v-show="currentTab == 1">팀원구인</div>
     <!-- 포스트 -->
@@ -39,8 +41,14 @@ const tabs = ["홈", "팀원구인", "포스트"];
   font-family: "Pretendard-Medium";
   font-size: 16px;
   color: #6b7684;
+  padding-top: 11px;
+  padding-bottom: 12px;
 }
 button.active {
   color: #000000;
+}
+img {
+  width: 100%;
+  object-fit: contain;
 }
 </style>
