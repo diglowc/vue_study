@@ -7,10 +7,10 @@
       <CategoryRect :="{ title: smallCategory }" back-color="#7A5DF5" />
       <CategoryRect :="{ title: bigCategory }" back-color="black" />
     </div>
-    <!-- <p class="projectPostingTitle">{{ title }}</p> -->
-    <!-- <div class="tagBox">
-      <p>{{}}</p>
-    </div> -->
+    <p class="projectPostingTitle">{{ title }}</p>
+    <div class="tagBox">
+      <p class="tag" v-for="tag in tags" v-bind:key="tag">#{{ tag }}</p>
+    </div>
     <p class="projectPostingContent"></p>
   </div>
 </template>
@@ -22,6 +22,7 @@ interface Props {
   smallCategory: string;
   bigCategory: string;
   title: string;
+  tags: string[];
 }
 
 const props = defineProps<Props>();
@@ -39,8 +40,10 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
 <style lang="scss">
 .projectPosting {
   flex: 1;
-  border: 1px #eeeeee;
+  border: 1px solid #eeeeee;
+  border-radius: 6px;
   padding: 14px;
+  text-align: left;
 }
 .projectCategoryBox {
   display: flex;
@@ -49,7 +52,7 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
 }
 .projectPostingTitle {
   margin-top: 18px;
-  //   width: fit-content;
+  margin-bottom: 0px;
   font-size: 16px;
   color: #000000;
   font-family: "Pretendard-Medium";
@@ -58,8 +61,13 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
   margin-top: 4px;
   display: flex;
   flex-wrap: wrap;
-  color: #8b95a1;
   font-size: 13px;
+}
+.tag {
+  font-size: 13px;
+  color: #8b95a1;
+  margin-block: 0;
+  margin-right: 5px;
 }
 .projectPostingContent {
   margin-top: 18px;

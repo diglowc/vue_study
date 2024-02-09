@@ -22,6 +22,7 @@
         smallCategory="사이드 프로젝트"
         bigCategory="라이프스타일"
         title="사용자 개선 프로젝트 함께하실 분 찾아요!"
+        v-bind:tags="['기획자', 'UI디자이너']"
       />
     </div>
     <!-- 팀원구인 -->
