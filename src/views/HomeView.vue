@@ -21,10 +21,19 @@
         </div>
         <ProjectPosting
           smallCategory="사이드 프로젝트"
+          smallCategoryColor="#7A5DF5"
           bigCategory="라이프스타일"
           title="사용자 개선 프로젝트 함께하실 분 찾아요!"
           v-bind:tags="['기획자', 'UI디자이너']"
           content="현재 사이드 프로젝트 진행중에 있으며 초기 아이디어 구상은 끝낸 상태입니다. 많이 지원해주세요!!"
+        />
+        <ProjectPosting
+          smallCategory="스타트업"
+          smallCategoryColor="#FF26A8"
+          bigCategory="라이프스타일"
+          title="힙한 인테리어 소품으로 생활을 즐겁게!"
+          v-bind:tags="['백엔드']"
+          content="집안을 힙하게 꾸며주는 다양한 아이템을 판매하는 서비스를 함께 만들어갈 백엔드 개발자 구해요!"
         />
       </div>
     </div>

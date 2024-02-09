@@ -4,7 +4,9 @@
       <img v-bind:src="require(`@/assets/images/${heartIcon}.png`)" />
     </button>
     <div class="projectCategoryBox">
-      <CategoryRect :="{ title: smallCategory }" back-color="#7A5DF5" />
+      <CategoryRect
+        :="{ title: smallCategory, backColor: smallCategoryColor }"
+      />
       <CategoryRect :="{ title: bigCategory }" back-color="black" />
     </div>
     <p class="projectPostingTitle">{{ title }}</p>
@@ -21,6 +23,7 @@ import { ref } from "vue";
 
 interface Props {
   smallCategory: string;
+  smallCategoryColor: string;
   bigCategory: string;
   title: string;
   tags: string[];
@@ -51,6 +54,7 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
   padding: 20px 14px;
   text-align: left;
   position: relative;
+  margin-bottom: 14px;
 }
 .likeButton {
   position: absolute;
