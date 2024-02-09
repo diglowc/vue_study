@@ -18,6 +18,11 @@
         <img class="headerIcon" src="@/assets/images/notice.png" />
         <PostingListHeader title="모집중인 프로젝트" />
       </div>
+      <ProjectPosting
+        smallCategory="사이드 프로젝트"
+        bigCategory="라이프스타일"
+        title="사용자 개선 프로젝트 함께하실 분 찾아요!"
+      />
     </div>
     <!-- 팀원구인 -->
     <div v-show="currentTab == 1"></div>
@@ -33,6 +38,7 @@ const currentTab = ref(0);
 const tabs = ["홈", "팀원구인", "포스트"];
 
 import PostingListHeader from "@/components/resources/PostingListHeader.vue";
+import ProjectPosting from "@/components/resources/ProjectPosting.vue";
 </script>
 
 <style lang="scss">

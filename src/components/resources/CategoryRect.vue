@@ -25,6 +25,7 @@ console.log(props.backColor);
   border-radius: 4px;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 .categoryTitle {
   font-size: 14px;
