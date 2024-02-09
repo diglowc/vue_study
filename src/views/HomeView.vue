@@ -73,7 +73,7 @@ button.active {
 }
 .subHeader {
   margin-top: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   flex: 1;
   display: flex;
   flex-direction: row;

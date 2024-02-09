@@ -1,8 +1,8 @@
 <template>
   <div class="projectPosting">
-    <!-- <button>
-      <img src="@/assets/images/" />
-    </button> -->
+    <button class="likeButton" @click="changeHeart">
+      <img v-bind:src="require(`@/assets/images/${heartIcon}.png`)" />
+    </button>
     <div class="projectCategoryBox">
       <CategoryRect :="{ title: smallCategory }" back-color="#7A5DF5" />
       <CategoryRect :="{ title: bigCategory }" back-color="black" />
@@ -17,6 +17,7 @@
 
 <script lang="ts" setup>
 import { defineProps } from "vue";
+import { ref } from "vue";
 
 interface Props {
   smallCategory: string;
@@ -32,9 +33,13 @@ console.log(props.smallCategory);
 console.log(props.bigCategory);
 console.log(props.title);
 
-// function getCategoryTitle() {
-//   return props.smallCategory;
-// }
+const heartIcon = ref("heart_unchecked");
+function changeHeart() {
+  heartIcon.value =
+    heartIcon.value === "heart_unchecked" ? "heart_checked" : "heart_unchecked";
+  console.log(heartIcon.value);
+}
+
 import CategoryRect from "@/components/resources/CategoryRect.vue";
 </script>
 
@@ -43,8 +48,21 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
   flex: 1;
   border: 1px solid #eeeeee;
   border-radius: 6px;
-  padding: 14px;
+  padding: 20px 14px;
   text-align: left;
+  position: relative;
+}
+.likeButton {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.likeButton img {
+  width: 24px;
+  height: 24px;
 }
 .projectCategoryBox {
   display: flex;
