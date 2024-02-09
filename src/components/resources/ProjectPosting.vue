@@ -11,7 +11,7 @@
     <div class="tagBox">
       <p class="tag" v-for="tag in tags" v-bind:key="tag">#{{ tag }}</p>
     </div>
-    <p class="projectPostingContent"></p>
+    <p class="projectPostingContent">{{ content }}</p>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ interface Props {
   bigCategory: string;
   title: string;
   tags: string[];
+  content: string;
 }
 
 const props = defineProps<Props>();

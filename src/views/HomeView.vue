@@ -14,16 +14,19 @@
     <!-- 홈 -->
     <div v-show="currentTab == 0">
       <img id="mainImg" src="@/assets/images/main_image.png" />
-      <div class="header">
-        <img class="headerIcon" src="@/assets/images/notice.png" />
-        <PostingListHeader title="모집중인 프로젝트" />
+      <div class="tab_element">
+        <div class="subHeader">
+          <img class="headerIcon" src="@/assets/images/notice.png" />
+          <PostingListHeader title="모집중인 프로젝트" />
+        </div>
+        <ProjectPosting
+          smallCategory="사이드 프로젝트"
+          bigCategory="라이프스타일"
+          title="사용자 개선 프로젝트 함께하실 분 찾아요!"
+          v-bind:tags="['기획자', 'UI디자이너']"
+          content="현재 사이드 프로젝트 진행중에 있으며 초기 아이디어 구상은 끝낸 상태입니다. 많이 지원해주세요!!"
+        />
       </div>
-      <ProjectPosting
-        smallCategory="사이드 프로젝트"
-        bigCategory="라이프스타일"
-        title="사용자 개선 프로젝트 함께하실 분 찾아요!"
-        v-bind:tags="['기획자', 'UI디자이너']"
-      />
     </div>
     <!-- 팀원구인 -->
     <div v-show="currentTab == 1"></div>
@@ -65,8 +68,12 @@ button.active {
   object-fit: contain;
   margin-bottom: 15px;
 }
-.header {
-  margin: 15px 20px;
+.tab_element {
+  margin: 0 20px;
+}
+.subHeader {
+  margin-top: 15px;
+  margin-bottom: 5px;
   flex: 1;
   display: flex;
   flex-direction: row;
