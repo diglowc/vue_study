@@ -15,9 +15,14 @@
     <div v-show="currentTab == 0">
       <img id="mainImg" src="@/assets/images/main_image.png" />
       <div class="tab_element">
+        <!-- 모집중인 프로젝트 -->
         <div class="subHeader">
           <img class="headerIcon" src="@/assets/images/notice.png" />
-          <PostingListHeader title="모집중인 프로젝트" />
+          <PostingListHeader
+            highlight=""
+            highlightColor=""
+            title="모집중인 프로젝트"
+          />
         </div>
         <ProjectPosting
           smallCategory="사이드 프로젝트"
@@ -35,6 +40,17 @@
           v-bind:tags="['백엔드']"
           content="집안을 힙하게 꾸며주는 다양한 아이템을 판매하는 서비스를 함께 만들어갈 백엔드 개발자 구해요!"
         />
+      </div>
+      <div class="tab_element">
+        <!-- 핫한 포스트 -->
+        <div class="subHeader">
+          <img class="headerIcon" src="@/assets/images/notice.png" />
+          <PostingListHeader
+            highlight="HOT"
+            highlightColor="#FF0000"
+            title="한 포스트"
+          />
+        </div>
       </div>
     </div>
     <!-- 팀원구인 -->
@@ -79,6 +95,7 @@ button.active {
 }
 .tab_element {
   margin: 0 20px;
+  margin-bottom: 30px;
 }
 .subHeader {
   margin-top: 15px;
