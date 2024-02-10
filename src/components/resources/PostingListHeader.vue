@@ -1,6 +1,10 @@
 <template>
   <div class="postingList">
     <div class="headerTitle">
+      <img
+        class="headerIcon"
+        v-bind:src="require(`@/assets/images/${iconImg}.png`)"
+      />
       <p class="highlightText" :style="{ color: highlightColor }">
         {{ highlight }}
       </p>
@@ -14,6 +18,7 @@
 import { defineProps } from "vue";
 
 interface Props {
+  iconImg: string;
   highlight: string;
   highlightColor: string;
   title: string;
@@ -25,6 +30,11 @@ console.log(props.title);
 </script>
 
 <style lang="scss">
+.headerIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
 .postingList {
   flex: 1;
   display: flex;
@@ -35,6 +45,7 @@ console.log(props.title);
 .headerTitle {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .highlightText,
 .mainText {

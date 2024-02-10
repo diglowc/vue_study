@@ -17,8 +17,8 @@
       <div class="tab_element">
         <!-- 모집중인 프로젝트 -->
         <div class="subHeader">
-          <img class="headerIcon" src="@/assets/images/notice.png" />
           <PostingListHeader
+            iconImg="notice"
             highlight=""
             highlightColor=""
             title="모집중인 프로젝트"
@@ -44,8 +44,8 @@
       <div class="tab_element">
         <!-- 핫한 포스트 -->
         <div class="subHeader">
-          <img class="headerIcon" src="@/assets/images/notice.png" />
           <PostingListHeader
+            iconImg="hot"
             highlight="HOT"
             highlightColor="#FF0000"
             title="한 포스트"
@@ -116,13 +116,5 @@ button.active {
   margin-top: 15px;
   margin-bottom: 15px;
   flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.headerIcon {
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
 }
 </style>
