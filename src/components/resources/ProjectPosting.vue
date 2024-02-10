@@ -11,7 +11,7 @@
     </div>
     <p class="projectPostingTitle">{{ title }}</p>
     <div class="tagBox">
-      <p class="tag" v-for="tag in tags" v-bind:key="tag">#{{ tag }}</p>
+      <p class="projectTag" v-for="tag in tags" v-bind:key="tag">#{{ tag }}</p>
     </div>
     <p class="projectPostingContent">{{ content }}</p>
   </div>
@@ -84,10 +84,10 @@ import CategoryRect from "@/components/resources/CategoryRect.vue";
   margin-top: 4px;
   display: flex;
   flex-wrap: wrap;
-  font-size: 13px;
 }
-.tag {
+.projectTag {
   font-size: 13px;
+  font-family: "Pretendard";
   color: #8b95a1;
   margin-block: 0;
   margin-right: 5px;

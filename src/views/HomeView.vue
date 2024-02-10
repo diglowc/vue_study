@@ -51,6 +51,20 @@
             title="한 포스트"
           />
         </div>
+        <DailyPosting
+          backImg="daily_post1"
+          title="감정일기 플랫폼 ‘데일리’"
+          v-bind:views="117"
+          v-bind:tags="['JAVA', 'Spring']"
+          content="이제는 정신 건강 관리에 대한 중요성이 높아지고..."
+        />
+        <DailyPosting
+          backImg="daily_post2"
+          title="감정일기 플랫폼 ‘데일리’"
+          v-bind:views="117"
+          v-bind:tags="['JAVA', 'Spring']"
+          content="이제는 정신 건강 관리에 대한 중요성이 높아지고..."
+        />
       </div>
     </div>
     <!-- 팀원구인 -->
@@ -68,6 +82,7 @@ const tabs = ["홈", "팀원구인", "포스트"];
 
 import PostingListHeader from "@/components/resources/PostingListHeader.vue";
 import ProjectPosting from "@/components/resources/ProjectPosting.vue";
+import DailyPosting from "@/components/resources/DailyPosting.vue";
 </script>
 
 <style lang="scss">
