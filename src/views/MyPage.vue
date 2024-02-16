@@ -16,9 +16,31 @@
     </p>
   </div>
   <hr class="mypage_hr" />
+  <div class="myInfo">
+    <p class="subHeader">프로필</p>
+    <div class="myProfileBox">
+      <ReadonlyInputText title="UX디자이너" />
+      <ReadonlyInputText title="서비스디자인" />
+    </div>
+    <p class="subHeader">포트폴리오</p>
+    <div class="myPortfolioBox">
+      <ReadonlyInputText title="포트폴리오 첨부(PDF 권장)" />
+      <ReadonlyInputText title="링크/URL" />
+    </div>
+    <p class="subHeader">기술스택</p>
+    <div class="myAbilityBox">
+      <AbilityCategory title="Figma" backColor="#1D1D1D" />
+      <AbilityCategory title="Adobe XD" backColor="#450135" />
+      <AbilityCategory title="Zeplin" backColor="#F69833" />
+      <AbilityCategory title="Photoshop" backColor="#005294" />
+    </div>
+  </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import ReadonlyInputText from "@/components/atoms/ReadonlyInputText.vue";
+import AbilityCategory from "@/components/resources/AbilityCategory.vue";
+</script>
 
 <style lang="scss">
 .myBackImg {
@@ -46,7 +68,8 @@
   text-align: left;
 }
 .nameAndEdit,
-.editProfile {
+.editProfile,
+.myProfileBox {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -75,5 +98,30 @@
   background-color: #f2f4f6;
   border: 0;
   margin-top: 16px;
+}
+.subHeader {
+  color: #000;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 34px;
+}
+.myProfileBox :nth-child(n + 2) {
+  margin-left: 8px;
+}
+.myProfileBox :nth-child(n) {
+  width: 50%;
+}
+.myPortfolioBox {
+  display: flex;
+  flex-direction: column;
+}
+.myPortfolioBox :nth-child(n + 2) {
+  margin-top: 12px;
+}
+.myAbilityBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
