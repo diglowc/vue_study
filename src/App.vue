@@ -1,7 +1,7 @@
 <template>
   <div class="mainHeader">
     <nav>
-      <router-link class="logo" to="/home">
+      <router-link class="logo" to="/">
         <p class="logoText">BeVelop</p>
         <img class="logoMenu" src="@/assets/images/chevron.png" />
       </router-link>
