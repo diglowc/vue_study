@@ -6,10 +6,12 @@
   <div class="myInfo">
     <div class="nameAndEdit">
       <p class="myName">Hyedesignr</p>
-      <div class="editProfile">
-        <p>프로필 수정</p>
-        <img class="intoBtn" src="@/assets/images/chevron-right.png" />
-      </div>
+      <nav>
+        <router-link class="editProfile" to="/editProfile">
+          <p>프로필 수정</p>
+          <img class="intoBtn" src="@/assets/images/chevron-right.png" />
+        </router-link>
+      </nav>
     </div>
     <p class="introduction">
       다양한 서비스 제공을 위해 힘쓰는<br />장혜리 디자이너입니다.
