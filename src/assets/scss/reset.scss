@@ -182,6 +182,9 @@ a:active,
 a:hover {
   outline: 0;
 }
+a:-webkit-any-link {
+  color: #000000;
+}
 h1,
 h2,
 h3,
