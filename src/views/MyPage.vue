@@ -82,9 +82,8 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 }
 .myName {
   color: #000000;
-  font-family: "Pretendard";
+  font-family: "Pretendard-SemiBold";
   font-size: 24px;
-  font-weight: 600;
 }
 #editProfileTextBtn {
   color: #8b95a1;
@@ -106,9 +105,8 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 }
 .subHeader {
   color: #000;
-  font-family: "Pretendard";
+  font-family: "Pretendard-Medium";
   font-size: 16px;
-  font-weight: 500;
   margin-top: 34px;
 }
 .myProfileBox :nth-child(n + 2) {

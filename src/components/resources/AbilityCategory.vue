@@ -31,7 +31,7 @@ console.log(props.backColor);
 .abilityCategoryTitle {
   font-size: 14px;
   color: #ffffff;
-  font-family: "Pretendard";
+  font-family: "Pretendard-Medium";
   margin-block: 0;
 }
 </style>
