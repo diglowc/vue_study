@@ -1,5 +1,5 @@
 <template>
-  <input class="inputText" type="text" :value="title" readonly />
+  <input class="inputText" type="text" :value="title" />
 </template>
 
 <script lang="ts" setup>
@@ -21,7 +21,6 @@ console.log(props.title);
   border-radius: 6px;
   border: 1px solid #dadee2;
   background: #ffffff;
-  justify-content: center;
   font-size: 14px;
   color: #404a5c;
   font-family: "Pretendard-Medium";
