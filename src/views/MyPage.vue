@@ -8,7 +8,7 @@
       <p class="myName">Hyedesignr</p>
       <nav>
         <router-link class="editProfile" to="/editProfile">
-          <p>프로필 수정</p>
+          <p id="editProfileTextBtn">프로필 수정</p>
           <img class="intoBtn" src="@/assets/images/chevron-right.png" />
         </router-link>
       </nav>
@@ -85,6 +85,9 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
   font-family: "Pretendard";
   font-size: 24px;
   font-weight: 600;
+}
+#editProfileTextBtn {
+  color: #8b95a1;
 }
 .intoBtn {
   width: 24px;
