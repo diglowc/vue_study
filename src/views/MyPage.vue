@@ -68,6 +68,8 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 .myInfo {
   margin: 0 20px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .nameAndEdit,
 .editProfile,
