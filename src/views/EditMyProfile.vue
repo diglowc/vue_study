@@ -20,10 +20,38 @@
       <DropDownMenu title="직무" v-bind:items="['UX디자이너']" />
       <DropDownMenu title="관심분야" v-bind:items="['서비스디자인']" />
     </div>
+    <p class="subHeader">포트폴리오</p>
+    <div class="myPortfolioBox">
+      <div class="editMyPortfolio">
+        <InputText title="포트폴리오 첨부(PDF 권장)" />
+        <button class="editPfBtn">수정</button>
+      </div>
+      <div class="editMyPortfolio">
+        <InputText title="링크/URL" />
+        <button class="editPfBtn">수정</button>
+      </div>
+    </div>
+    <p class="subHeader">기술스택</p>
+    <div class="myAbilityBox">
+      <AbilityCategory title="Figma" backColor="#1D1D1D" />
+      <AbilityCategory title="Adobe XD" backColor="#450135" />
+      <AbilityCategory title="Zeplin" backColor="#F69833" />
+      <AbilityCategory title="Photoshop" backColor="#005294" />
+    </div>
+    <div class="addAbility">
+      <img class="addAbilityBtn" src="@/assets/images/large_plus_box.png" />
+      <input
+        class="inputAbility"
+        type="text"
+        placeholder="기술스택을 추가해보세요"
+      />
+    </div>
+    <button class="finishEditBtn">입력 완료</button>
   </div>
 </template>
 
 <script lang="ts" setup>
+import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 import InputTextArea from "@/components/atoms/InputTextArea.vue";
 import InputText from "@/components/atoms/InputText.vue";
 import DropDownMenu from "@/components/atoms/DropDownMenu.vue";
@@ -54,5 +82,54 @@ import DropDownMenu from "@/components/atoms/DropDownMenu.vue";
   font-family: "Pretendard-Medium";
   font-size: 12px;
   margin-top: 8px;
+}
+.editMyPortfolio {
+  display: flex;
+  position: relative;
+}
+.editPfBtn {
+  border: 0;
+  background: none;
+  position: absolute;
+  right: 17px;
+  top: 9px;
+  color: #8b95a1;
+  font-family: "Pretendard-Medium";
+  font-size: 12px;
+}
+.addAbility {
+  display: flex;
+  margin-top: 10px;
+}
+.addAbilityBtn {
+  width: 72px;
+  height: 37px;
+}
+.inputAbility {
+  border-radius: 6px;
+  border: 1px dashed #8b95a1;
+  height: 37px;
+  margin-left: 7px;
+  flex: 1;
+  text-align: center;
+  color: #8b95a1;
+  font-family: "Pretendard-Medium";
+  font-size: 14px;
+  padding: 0;
+}
+// focus되면 placeholder 감추기
+.inputAbility:focus::placeholder {
+  color: transparent;
+}
+.finishEditBtn {
+  flex: 1;
+  padding: 17px;
+  border: 0;
+  border-radius: 6px;
+  background: #7a5df5;
+  color: #ffffff;
+  font-family: "Pretendard-Medium";
+  font-size: 16px;
+  margin: 48px 0;
 }
 </style>

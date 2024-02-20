@@ -1,13 +1,8 @@
 <template>
   <div class="inputText" id="dropDownDiv">
     <select class="dropDownSelect">
-      <option class="dropDownItem" :value="null">{{ title }}</option>
-      <option
-        class="dropDownItem"
-        v-for="item in items"
-        :value="item"
-        :key="item"
-      >
+      <option :value="null">{{ title }}</option>
+      <option v-for="item in items" :value="item" :key="item">
         {{ item }}
       </option>
     </select>
@@ -47,8 +42,6 @@ console.log(props.title);
   //   방지하기 위해 z-index 설정, 백그라운드 투명하게 설정
   background-color: transparent;
   z-index: 2;
-}
-.dropDownItem {
 }
 .dropDownIcon {
   // 다른 화면에서 DropDownMenu 배치할 때 style 속성에 영향받아
