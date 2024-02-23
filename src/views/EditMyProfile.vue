@@ -33,17 +33,24 @@
     </div>
     <p class="subHeader">기술스택</p>
     <div class="myAbilityBox">
-      <AbilityCategory :title="abilities[0]" backColor="#1D1D1D" />
-      <AbilityCategory :title="abilities[1]" backColor="#450135" />
-      <AbilityCategory :title="abilities[2]" backColor="#F69833" />
-      <AbilityCategory :title="abilities[3]" backColor="#005294" />
+      <AbilityCategory
+        v-for="(ability, index) in abilities"
+        :key="index"
+        :title="ability"
+        :backColor="backColors[index % 4]"
+      />
     </div>
     <div class="addAbility">
-      <img class="addAbilityBtn" src="@/assets/images/large_plus_box.png" />
+      <img
+        class="addAbilityBtn"
+        src="@/assets/images/large_plus_box.png"
+        @click="addAbility"
+      />
       <input
         class="inputAbility"
         type="text"
         placeholder="기술스택을 추가해보세요"
+        @input="inputAbilityText($event)"
       />
     </div>
     <button class="finishEditBtn" @click="finishEdit">입력 완료</button>
@@ -63,9 +70,13 @@ import router from "@/router";
 const store = useStore();
 const nickname = computed(() => store.state.nickname);
 const abilities = computed(() => store.state.abilities);
-const checkNickname = ref("사용가능한 닉네임입니다.");
+const backColors = computed(() => store.state.backColors);
 
-const newNickname = ref("");
+const checkNickname = ref("사용가능한 닉네임입니다.");
+const newNickname = ref(nickname.value);
+let newAbility = "";
+
+// 닉네임 변경
 function changeNickname(event: { target: { value: string } }) {
   event.target.value === ""
     ? (checkNickname.value = "닉네임을 입력하세요.")
@@ -73,12 +84,23 @@ function changeNickname(event: { target: { value: string } }) {
   newNickname.value = event.target.value;
 }
 
+// 기술스택 입력
+function inputAbilityText(event: Event) {
+  const target = event.target as HTMLInputElement;
+  newAbility = target.value;
+}
+
+// 기술스택 추가
+function addAbility() {
+  store.commit("addAbility", newAbility);
+}
+
+// 입력 완료 클릭 시
 function finishEdit() {
   if (newNickname.value === "") {
     alert("닉네임을 입력하세요.");
   } else {
     store.commit("setNickname", newNickname);
-
     router.push("/mypage");
   }
 }
