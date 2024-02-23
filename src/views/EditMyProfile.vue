@@ -46,7 +46,7 @@
         placeholder="기술스택을 추가해보세요"
       />
     </div>
-    <button class="finishEditBtn">입력 완료</button>
+    <button class="finishEditBtn" @click="finishEdit">입력 완료</button>
   </div>
 </template>
 
@@ -59,15 +59,28 @@ import DropDownMenu from "@/components/atoms/DropDownMenu.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { ref } from "vue";
+import router from "@/router";
 const store = useStore();
 const nickname = computed(() => store.state.nickname);
 const abilities = computed(() => store.state.abilities);
 const checkNickname = ref("사용가능한 닉네임입니다.");
 
+const newNickname = ref("");
 function changeNickname(event: { target: { value: string } }) {
   event.target.value === ""
     ? (checkNickname.value = "닉네임을 입력하세요.")
     : (checkNickname.value = "사용가능한 닉네임입니다.");
+  newNickname.value = event.target.value;
+}
+
+function finishEdit() {
+  if (newNickname.value === "") {
+    alert("닉네임을 입력하세요.");
+  } else {
+    store.commit("setNickname", newNickname);
+
+    router.push("/mypage");
+  }
 }
 </script>
 
