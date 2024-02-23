@@ -7,6 +7,7 @@ export default createStore({
     job: "UX디자이너",
     field: "서비스디자인",
     abilities: ["Figma", "Adobe XD", "Zeplin", "Photoshop"],
+    backColors: ["#1D1D1D", "#450135", "#F69833", "#005294"],
   },
   mutations: {
     setNickname(state, newNickname) {

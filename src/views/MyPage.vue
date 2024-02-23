@@ -31,10 +31,12 @@
     </div>
     <p class="subHeader">기술스택</p>
     <div class="myAbilityBox">
-      <AbilityCategory :title="abilities[0]" backColor="#1D1D1D" />
-      <AbilityCategory :title="abilities[1]" backColor="#450135" />
-      <AbilityCategory :title="abilities[2]" backColor="#F69833" />
-      <AbilityCategory :title="abilities[3]" backColor="#005294" />
+      <AbilityCategory
+        v-for="(ability, index) in abilities"
+        :key="index"
+        :title="ability"
+        :backColor="backColors[index % 4]"
+      />
     </div>
   </div>
 </template>
@@ -51,6 +53,7 @@ const introduction = computed(() => store.state.introduction);
 const job = computed(() => store.state.job);
 const field = computed(() => store.state.field);
 const abilities = computed(() => store.state.abilities);
+const backColors = computed(() => store.state.backColors);
 </script>
 
 <style lang="scss">
