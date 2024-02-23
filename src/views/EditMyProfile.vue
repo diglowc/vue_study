@@ -7,8 +7,8 @@
   </div>
   <div class="myInfo">
     <p class="subHeader" style="margin-top: 54px">닉네임</p>
-    <InputText title="Hyedesigner" />
-    <p class="checkNickname">사용가능한 닉네임입니다.</p>
+    <InputText :title="nickname" @input="changeNickname($event)" />
+    <p class="checkNickname">{{ checkNickname }}</p>
 
     <p class="subHeader">한줄소개</p>
     <div class="fixTextAreaPadding">
@@ -33,10 +33,10 @@
     </div>
     <p class="subHeader">기술스택</p>
     <div class="myAbilityBox">
-      <AbilityCategory title="Figma" backColor="#1D1D1D" />
-      <AbilityCategory title="Adobe XD" backColor="#450135" />
-      <AbilityCategory title="Zeplin" backColor="#F69833" />
-      <AbilityCategory title="Photoshop" backColor="#005294" />
+      <AbilityCategory :title="abilities[0]" backColor="#1D1D1D" />
+      <AbilityCategory :title="abilities[1]" backColor="#450135" />
+      <AbilityCategory :title="abilities[2]" backColor="#F69833" />
+      <AbilityCategory :title="abilities[3]" backColor="#005294" />
     </div>
     <div class="addAbility">
       <img class="addAbilityBtn" src="@/assets/images/large_plus_box.png" />
@@ -55,6 +55,20 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 import InputTextArea from "@/components/atoms/InputTextArea.vue";
 import InputText from "@/components/atoms/InputText.vue";
 import DropDownMenu from "@/components/atoms/DropDownMenu.vue";
+
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { ref } from "vue";
+const store = useStore();
+const nickname = computed(() => store.state.nickname);
+const abilities = computed(() => store.state.abilities);
+const checkNickname = ref("사용가능한 닉네임입니다.");
+
+function changeNickname(event: { target: { value: string } }) {
+  event.target.value === ""
+    ? (checkNickname.value = "닉네임을 입력하세요.")
+    : (checkNickname.value = "사용가능한 닉네임입니다.");
+}
 </script>
 
 <style lang="scss">
