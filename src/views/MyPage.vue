@@ -5,7 +5,7 @@
   </div>
   <div class="myInfo">
     <div class="nameAndEdit">
-      <p class="myName">Hyedesignr</p>
+      <p class="myName">{{ nickname }}</p>
       <nav>
         <router-link class="editProfile" to="/editProfile">
           <p id="editProfileTextBtn">프로필 수정</p>
@@ -14,15 +14,15 @@
       </nav>
     </div>
     <p class="introduction">
-      다양한 서비스 제공을 위해 힘쓰는<br />장혜리 디자이너입니다.
+      {{ introduction }}
     </p>
   </div>
   <hr class="mypage_hr" />
   <div class="myInfo">
     <p class="subHeader">프로필</p>
     <div class="myProfileBox">
-      <ReadonlyInputText title="UX디자이너" />
-      <ReadonlyInputText title="서비스디자인" />
+      <ReadonlyInputText :title="job" />
+      <ReadonlyInputText :title="field" />
     </div>
     <p class="subHeader">포트폴리오</p>
     <div class="myPortfolioBox">
@@ -42,6 +42,15 @@
 <script lang="ts" setup>
 import ReadonlyInputText from "@/components/atoms/ReadonlyInputText.vue";
 import AbilityCategory from "@/components/resources/AbilityCategory.vue";
+
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const nickname = computed(() => store.state.nickname);
+const introduction = computed(() => store.state.introduction);
+const job = computed(() => store.state.job);
+const field = computed(() => store.state.field);
+// const abilities = computed(() => store.state.abilities);
 </script>
 
 <style lang="scss">
