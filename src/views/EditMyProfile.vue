@@ -1,8 +1,15 @@
 <template>
   <!-- MyPage와 동일한 class명을 많이 갖고있어 css는 MyPage 파일 참고 -->
-  <div class="myBackImg" id="editBackImg">
+  <div class="myBackImgDiv">
+    <img
+      class="myBackImg"
+      v-bind:src="require(`@/assets/images/${editBackgroundImg}`)"
+    />
     <!-- 배경사진 위치에 맞춰 프로필사진 띄우기 위해 배경 div가 프로필 img 태그를 감쌈 -->
-    <img class="myProfileImg" src="@/assets/images/profile1.jpg" />
+    <img
+      class="myProfileImg"
+      v-bind:src="require(`@/assets/images/${profileImg}`)"
+    />
     <img class="getPhotoBtn" src="@/assets/images/plus.png" />
   </div>
   <div class="myInfo">
@@ -81,6 +88,7 @@ import { useStore } from "vuex";
 import { ref } from "vue";
 import router from "@/router";
 const store = useStore();
+const profileImg = computed(() => store.state.profileImg);
 const nickname = computed(() => store.state.nickname);
 const introduction = computed(() => store.state.introduction);
 const job = computed(() => store.state.job);
@@ -88,6 +96,7 @@ const field = computed(() => store.state.field);
 const abilities = computed(() => store.state.abilities);
 const backColors = computed(() => store.state.backColors);
 
+const editBackgroundImg = ref("add_back_img.png");
 const checkNickname = ref("사용가능한 닉네임입니다.");
 const newNickname = ref(nickname.value);
 const newIntroduction = ref(introduction.value);
@@ -146,9 +155,6 @@ function finishEdit() {
 </script>
 
 <style lang="scss">
-#editBackImg {
-  background-image: url("@/assets/images/add_back_img.png");
-}
 .getPhotoBtn {
   width: 30px;
   height: 30px;
