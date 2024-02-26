@@ -12,7 +12,12 @@
 
     <p class="subHeader">한줄소개</p>
     <div class="fixTextAreaPadding">
-      <InputTextArea class="editIntroduction" style="height: 46px" />
+      <InputTextArea
+        class="editIntroduction"
+        :value="introduction"
+        @input="changeIntroduction($event)"
+        style="height: 46px"
+      />
     </div>
 
     <p class="subHeader">프로필</p>
@@ -69,11 +74,13 @@ import { ref } from "vue";
 import router from "@/router";
 const store = useStore();
 const nickname = computed(() => store.state.nickname);
+const introduction = computed(() => store.state.introduction);
 const abilities = computed(() => store.state.abilities);
 const backColors = computed(() => store.state.backColors);
 
 const checkNickname = ref("사용가능한 닉네임입니다.");
 const newNickname = ref(nickname.value);
+const newIntroduction = ref(introduction.value);
 let newAbility = "";
 
 // 닉네임 변경
@@ -82,6 +89,11 @@ function changeNickname(event: { target: { value: string } }) {
     ? (checkNickname.value = "닉네임을 입력하세요.")
     : (checkNickname.value = "사용가능한 닉네임입니다.");
   newNickname.value = event.target.value;
+}
+
+// 한줄소개 변경
+function changeIntroduction(event: { target: { value: string } }) {
+  newIntroduction.value = event.target.value;
 }
 
 // 기술스택 입력
@@ -101,6 +113,7 @@ function finishEdit() {
     alert("닉네임을 입력하세요.");
   } else {
     store.commit("setNickname", newNickname);
+    store.commit("setIntroduction", newIntroduction);
     router.push("/mypage");
   }
 }
