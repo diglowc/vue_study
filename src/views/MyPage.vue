@@ -1,12 +1,14 @@
 <template>
-  <div class="myBackImg">
+  <div class="myBackImgDiv">
     <!-- 배경사진 위치에 맞춰 프로필사진 띄우기 위해 배경 div가 프로필 img 태그를 감쌈 -->
+    <img
+      class="myBackImg"
+      v-bind:src="require(`@/assets/images/${backgroundImg}`)"
+    />
     <img
       class="myProfileImg"
       v-bind:src="require(`@/assets/images/${profileImg}`)"
     />
-
-    <!-- <img class="myProfileImg" src="@/assets/images/profile1.jpg" /> -->
   </div>
   <div class="myInfo">
     <div class="nameAndEdit">
@@ -54,6 +56,9 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const profileImg = computed(() => store.state.profileImg);
+const backgroundImg = computed(() => store.state.backgroundImg);
+// var backgroundImgUrl = "url('@/assets/images/" + backgroundImg.value + ")";
+
 const nickname = computed(() => store.state.nickname);
 const introduction = computed(() => store.state.introduction);
 const job = computed(() => store.state.job);
@@ -63,15 +68,21 @@ const backColors = computed(() => store.state.backColors);
 </script>
 
 <style lang="scss">
-.myBackImg {
+.myBackImgDiv {
   width: 100%;
   height: 117px;
   border-radius: 0 0 58.5px 0;
-  background-image: url("@/assets/images/profile_back1.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-image: {pr}
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
   position: relative;
+}
+.myBackImg {
+  width: 100%;
+  height: 117px;
+  object-position: center;
+  object-fit: cover;
 }
 .myProfileImg {
   width: 100px;

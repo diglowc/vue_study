@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     profileImg: "profile1.jpg",
+    backgroundImg: "profile_back1.jpg",
     nickname: "Hyedesignr",
     introduction: "다양한 서비스 제공을 위해 힘쓰는\n장혜리 디자이너입니다.",
     job: "UX디자이너",
