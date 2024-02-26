@@ -1,7 +1,12 @@
 <template>
   <div class="myBackImg">
     <!-- 배경사진 위치에 맞춰 프로필사진 띄우기 위해 배경 div가 프로필 img 태그를 감쌈 -->
-    <img class="myProfileImg" src="@/assets/images/profile1.jpg" />
+    <img
+      class="myProfileImg"
+      v-bind:src="require(`@/assets/images/${profileImg}`)"
+    />
+
+    <!-- <img class="myProfileImg" src="@/assets/images/profile1.jpg" /> -->
   </div>
   <div class="myInfo">
     <div class="nameAndEdit">
@@ -48,6 +53,7 @@ import AbilityCategory from "@/components/resources/AbilityCategory.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
+const profileImg = computed(() => store.state.profileImg);
 const nickname = computed(() => store.state.nickname);
 const introduction = computed(() => store.state.introduction);
 const job = computed(() => store.state.job);
