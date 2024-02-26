@@ -22,8 +22,16 @@
 
     <p class="subHeader">프로필</p>
     <div class="myProfileBox">
-      <DropDownMenu title="직무" v-bind:items="['UX디자이너']" />
-      <DropDownMenu title="관심분야" v-bind:items="['서비스디자인']" />
+      <DropDownMenu
+        title="직무"
+        v-bind:items="['UX디자이너', '개발자']"
+        @change="changeJob"
+      />
+      <DropDownMenu
+        title="관심분야"
+        v-bind:items="['서비스디자인', '백엔드']"
+        @change="changeField"
+      />
     </div>
     <p class="subHeader">포트폴리오</p>
     <div class="myPortfolioBox">
@@ -75,12 +83,17 @@ import router from "@/router";
 const store = useStore();
 const nickname = computed(() => store.state.nickname);
 const introduction = computed(() => store.state.introduction);
+const job = computed(() => store.state.job);
+const field = computed(() => store.state.field);
 const abilities = computed(() => store.state.abilities);
 const backColors = computed(() => store.state.backColors);
 
 const checkNickname = ref("사용가능한 닉네임입니다.");
 const newNickname = ref(nickname.value);
 const newIntroduction = ref(introduction.value);
+const newJob = ref(job.value);
+const newField = ref(field.value);
+
 let newAbility = "";
 
 // 닉네임 변경
@@ -94,6 +107,16 @@ function changeNickname(event: { target: { value: string } }) {
 // 한줄소개 변경
 function changeIntroduction(event: { target: { value: string } }) {
   newIntroduction.value = event.target.value;
+}
+
+// 직무 선택시
+function changeJob(event: { target: { value: string } }) {
+  newJob.value = event.target.value;
+}
+
+// 관심분야 선택시
+function changeField(event: { target: { value: string } }) {
+  newField.value = event.target.value;
 }
 
 // 기술스택 입력
@@ -114,6 +137,9 @@ function finishEdit() {
   } else {
     store.commit("setNickname", newNickname);
     store.commit("setIntroduction", newIntroduction);
+    store.commit("setJob", newJob);
+    store.commit("setField", newField);
+
     router.push("/mypage");
   }
 }
