@@ -92,6 +92,11 @@ const backColors = computed(() => store.state.backColors);
   position: absolute;
   top: 42px;
   left: 24px;
+  // EditMyProfile 파일에서는 background를 이용하기 때문에
+  // 그에 관한 속성 추가
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .myInfo {
   margin: 0 20px;

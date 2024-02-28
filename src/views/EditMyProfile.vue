@@ -9,11 +9,25 @@
       :style="{ backgroundImage: `url(${newBackImg})` }"
     />
     <!-- 배경사진 위치에 맞춰 프로필사진 띄우기 위해 배경 div가 프로필 img 태그를 감쌈 -->
-    <img
-      class="myProfileImg"
-      v-bind:src="require(`@/assets/images/${profileImg}`)"
+    <label for="editProfileImg">
+      <!-- 기존의 프로필 사진 보여주기 위한 img 태그 -->
+      <img
+        class="myProfileImg"
+        v-bind:src="require(`@/assets/images/${profileImg}`)"
+      />
+      <!-- 변경한 프로필 사진 보여주기 위한 img 태그 -->
+      <img
+        class="myProfileImg"
+        :style="{ backgroundImage: `url(${newProfileImg})` }"
+      />
+      <img class="getPhotoBtn" src="@/assets/images/plus.png" />
+    </label>
+    <input
+      id="editProfileImg"
+      name="editProfileImg"
+      @change="uploadProfileImg"
+      type="file"
     />
-    <img class="getPhotoBtn" src="@/assets/images/plus.png" />
   </div>
   <div class="myInfo">
     <p class="subHeader" style="margin-top: 54px">닉네임</p>
@@ -106,15 +120,32 @@ const newIntroduction = ref(introduction.value);
 const newJob = ref(job.value);
 const newField = ref(field.value);
 const newBackImg = ref("");
+const newProfileImg = ref("");
 
 let newAbility = "";
 
-function uploadBackImg(event: any) {
+// 이미지 url 받아오기
+function getImgFileUrl(event: any) {
   if (event.target.files.length !== 0) {
     let file = event.target.files;
-    let url = URL.createObjectURL(file[0]);
+    return URL.createObjectURL(file[0]);
+  }
+  return null;
+}
+
+// 배경 사진 변경
+function uploadBackImg(event: any) {
+  let url = getImgFileUrl(event);
+  if (url !== null) {
     newBackImg.value = url;
-    console.log(file);
+  }
+}
+
+// 프로필 사진 변경
+function uploadProfileImg(event: any) {
+  let url = getImgFileUrl(event);
+  if (url !== null) {
+    newProfileImg.value = url;
   }
 }
 
@@ -175,6 +206,9 @@ function finishEdit() {
   color: transparent;
 }
 #editMyBackImg::file-selector-button {
+  display: none;
+}
+#editProfileImg {
   display: none;
 }
 .getPhotoBtn {
