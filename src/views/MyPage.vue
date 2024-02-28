@@ -71,12 +71,17 @@ const backColors = computed(() => store.state.backColors);
   height: 117px;
   border-radius: 0 0 58.5px 0;
   position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("@/assets/images/add_back_img.png");
 }
 .myBackImg {
   width: 100%;
   height: 117px;
   object-position: center;
   object-fit: cover;
+  border-radius: 0 0 58.5px 0;
 }
 .myProfileImg {
   width: 100px;

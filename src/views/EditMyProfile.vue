@@ -1,9 +1,12 @@
 <template>
   <!-- MyPage와 동일한 class명을 많이 갖고있어 css는 MyPage 파일 참고 -->
   <div class="myBackImgDiv">
-    <img
+    <input
       class="myBackImg"
-      v-bind:src="require(`@/assets/images/${editBackgroundImg}`)"
+      id="editMyBackImg"
+      @change="uploadBackImg"
+      type="file"
+      :style="{ backgroundImage: `url(${newBackImg})` }"
     />
     <!-- 배경사진 위치에 맞춰 프로필사진 띄우기 위해 배경 div가 프로필 img 태그를 감쌈 -->
     <img
@@ -96,14 +99,24 @@ const field = computed(() => store.state.field);
 const abilities = computed(() => store.state.abilities);
 const backColors = computed(() => store.state.backColors);
 
-const editBackgroundImg = ref("add_back_img.png");
+// const editBackgroundImg = ref("add_back_img.png");
 const checkNickname = ref("사용가능한 닉네임입니다.");
 const newNickname = ref(nickname.value);
 const newIntroduction = ref(introduction.value);
 const newJob = ref(job.value);
 const newField = ref(field.value);
+const newBackImg = ref("");
 
 let newAbility = "";
+
+function uploadBackImg(event: any) {
+  if (event.target.files.length !== 0) {
+    let file = event.target.files;
+    let url = URL.createObjectURL(file[0]);
+    newBackImg.value = url;
+    console.log(file);
+  }
+}
 
 // 닉네임 변경
 function changeNickname(event: { target: { value: string } }) {
@@ -155,6 +168,15 @@ function finishEdit() {
 </script>
 
 <style lang="scss">
+#editMyBackImg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: transparent;
+}
+#editMyBackImg::file-selector-button {
+  display: none;
+}
 .getPhotoBtn {
   width: 30px;
   height: 30px;
